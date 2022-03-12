@@ -128,13 +128,6 @@ function xK9:Intimidate()
   -- Dog will bark and animate at the target
 end
 
-function xK9:SmellSearchPersonAI(ped)
-  if not self:IsSpawned() then return end
-
-  -- Dog will smell if a ai ped has an illegal substance on them
-  -- Random Generate Items
-end
-
 function xK9:SmellSearchPersonPlayer(player)
   if not self:IsSpawned() then return end
   if not xK9Config.Framework then return end
