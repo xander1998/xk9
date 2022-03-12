@@ -1,0 +1,77 @@
+/* https://colorhunt.co/palette/1919192d4263c84b31ecdbba */
+
+:root {
+  --color-gray: #191919;
+  --color-blue: #2D4263;
+  --color-orange: #C84B31;
+  --color-tan: #ECDBBA;
+  
+  --font-family: Verdana;
+  --text-color-white: white;
+
+  --doghouse-width: 925px;
+  --doghouse-height: 500px;
+  --doghouse-radius: 20px;
+  --doghouse-header-padding: 15px;
+  --doghouse-cards-per-row: 3;
+  --doghouse-max-height: 400px;
+
+  --doghouse-k9-card-header-padding: 15px;
+  --doghouse-k9-card-margin: 10px;
+  --doghouse-k9-card-radius: 20px;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#doghouse_container {
+  position: absolute;
+  width: var(--doghouse-width);
+  height: var(--doghouse-height);
+  left: calc(50% - (var(--doghouse-width) / 2));
+  top: calc(50% + (var(--doghouse-height) / 2) - (var(--doghouse-header-padding) * 2));
+}
+
+#doghouse_header {
+  padding: var(--doghouse-header-padding);
+  background-color: var(--color-blue);
+  color: var(--text-color-white);
+  text-align: center;
+  font-size: 28px;
+  border-radius: var(--doghouse-radius) var(--doghouse-radius) 0 0;
+}
+
+#doghouse_body {
+  display: flex;
+  flex-direction: row;
+  max-height: var(--doghouse-max-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  background-color: var(--color-gray);
+}
+
+.k9_card {
+  width: calc(var(--doghouse-width) / var(--doghouse-cards-per-row));
+  margin: var(--doghouse-k9-card-margin);
+}
+
+.k9_card_header {
+  padding: var(--doghouse-k9-card-header-padding);
+  text-align: center;
+  color: var(--text-color-white);
+  background-color: var(--color-orange);
+}
+
+.k9_card_body {
+  width: 100%;
+  background-color: var(--color-blue);
+  border-radius: 0 0 var(--doghouse-k9-card-radius), var(--doghouse-k9-card-radius);
+}
