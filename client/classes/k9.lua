@@ -1,13 +1,6 @@
 xK9 = {}
 xK9.__index = xK9
 
-local k9_states = {
-  ["heeled"] = 0,
-  ["attacking"] = 1,
-  ["searching"] = 2,
-  ["locating"] = 3
-}
-
 function xK9.New(name)
   local newK9 = {}
   setmetatable(newK9, xK9)
@@ -26,9 +19,10 @@ function xK9.New(name)
   newK9.NetHandle = nil
   newK9.Target = nil
   newK9.LeashHandle = nil
+  newK9.BlipHandle = nil
 
   -- K9 States
-  newK9.State = k9_states["heeled"]
+  newK9.State = nil
 
   return newK9
 end
@@ -49,24 +43,53 @@ function xK9:Spawn()
   self.Handle = CreatePed(28, self.Hash, spawnPosition.x, spawnPosition.y, spawnPosition.z - 0.5, spawnHeading, true, true)
   self.NetHandle = NetworkGetNetworkIdFromEntity(self.Handle)
 
+  -- Behaviors
+  SetBlockingOfNonTemporaryEvents(self.Handle, true)
+  SetPedFleeAttributes(self.Handle, 0, 0)
+  SetPedRelationshipGroupHash(self.Handle, GetHashKey("K9"))
+  GiveWeaponToPed(self.Handle, GetHashKey("WEAPON_ANIMAL"), 200, true, true)
+
   Citizen.Wait(1000)
 
+  self:CreateBlip()
   self:Heel()
+
+  print("[K9]: Spawned")
 end
 
 function xK9:Despawn()
   if not self:IsSpawned() then return end
 
   DeleteEntity(self.Handle)
+  self:DeleteBlip()
 
-  if self.LeashHandle then
+  if self:IsLeashed() then
     TriggerServerEvent("xK9::Server::SyncUnleash")
   end
+
+  print("[K9]: Despawned.")
+end
+
+function xK9:CreateBlip()
+  local blip = AddBlipForEntity(self.Handle)
+  SetBlipAsFriendly(blip, true)
+  SetBlipSprite(blip, 442)
+  BeginTextCommandSetBlipName("STRING")
+  AddTextComponentString(tostring("K9: " .. self.Name))
+  EndTextCommandSetBlipName(blip)
+  self.BlipHandle = blip
+  print("[K9]: Blip Created.")
+end
+
+function xK9:DeleteBlip()
+  if not self.BlipHandle then return end
+  RemoveBlip(self.BlipHandle)
+  print("[K9]: Blip Deleted.")
 end
 
 function xK9:Leash()
   if not self:IsSpawned() then return end
-  if self.LeashHandle then return end
+  if self:IsLeashed() then return end
 
   local ped = PlayerPedId()
 
@@ -89,11 +112,11 @@ function xK9:Leash()
 
   StartRopeUnwindingFront(self.LeashHandle)
 
-  if self.State == k9_states["attacking"] then
-    self:Attack()
-  end
+  self:Follow()
 
   TriggerServerEvent("xK9::Server::SyncLeash", self.NetHandle)
+
+  print("[K9]: Leashed")
 end
 
 function xK9:Unleash()
@@ -102,8 +125,13 @@ function xK9:Unleash()
   -- Delete Rope
   DeleteRope(self.LeashHandle)
   self.LeashHandle = nil
-  
-  self:Heel()
+
+  if self.State == "attacking" then
+    print("[K9]: Unleashed. Set into attack. Attacking!")
+    self:Attack()
+  end
+
+  print("[K9]: Unleashed")
 
   TriggerServerEvent("xK9::Server::SyncUnleash", self.NetHandle)
 end
@@ -111,15 +139,43 @@ end
 function xK9:Heel()
   if not self:IsSpawned() then return end
 
-  -- Dog sits on the ground
   TaskStartScenarioInPlace(self.Handle, self.Scenarios["sitting"], 0, true)
+  self.State = "heeled"
+
+  print("[K9]: Heeled.")
+end
+
+function xK9:Follow()
+  TaskFollowToOffsetOfEntity(self.Handle, PlayerPedId(), 0.0, 0.0, 5.0, 15.0, -1, 0.4, true)
+  self.State = "following"
+
+  print("[K9]: Following.")
 end
 
 function xK9:Attack()
+  if not self.Target then return end
   if not self:IsSpawned() then return end
-  if self.LeashHandle then return end
 
-  -- Dog starts to chase and bite at the target
+  if self:IsLeashed() then
+    self.State = "attacking"
+    return
+  end
+
+  SetCanAttackFriendly(self.Handle, true, true)
+  TaskPutPedDirectlyIntoMelee(self.Handle, self.Target.Handle, 0.0, -1.0, 0.0, false)
+  print("[K9]: Attacking.")
+end
+
+function xK9:SetTarget(ped)
+  self.Target = xK9Target.New(ped)
+  self.Target:Init()
+  print("[K9]: Setting Target")
+end
+
+function xK9:UnsetTarget()
+  if not self.Target then return end
+  self.Target = nil
+  print("[K9]: Unsetting Target")
 end
 
 function xK9:Intimidate()
@@ -159,6 +215,13 @@ end
 
 function xK9:IsSpawned()
   if self.Handle then
+    return true
+  end
+  return false
+end
+
+function xK9:IsLeashed()
+  if self.LeashHandle then
     return true
   end
   return false

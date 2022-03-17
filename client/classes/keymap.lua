@@ -5,14 +5,16 @@ function xKeymap.New(command --[[ string ]], description --[[ string ]], mapper 
   local newKeymap = {}
   setmetatable(newKeymap, xKeymap)
 
-  if pressedCallback then
-    RegisterCommand("+" .. command, pressedCallback, false)
+  if not pressedCallback then
+    pressedCallback = function() end
   end
 
-  if releasedCallback then
-    RegisterCommand("-" .. command, pressedCallback, false)
+  if not releasedCallback then
+    releasedCallback = function() end
   end
 
+  RegisterCommand("+" .. command, pressedCallback, false)
+  RegisterCommand("-" .. command, releasedCallback, false)
   RegisterKeyMapping("+" .. command, description, mapper, key)
 
   return newKeymap
