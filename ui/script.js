@@ -5,6 +5,11 @@ Vue.createApp({
     }
   },
   methods: {
-    
+    SelectK9(index) {
+      console.log(index);
+    },
+    RetireK9(index) {
+      console.log(index);
+    }
   }
 }).mount("#app");
