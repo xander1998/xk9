@@ -20,7 +20,7 @@ Vue.createApp({
           { skill: "Cocaine", level: 7, trained: "0/0/0000" },
           { skill: "Meth", level: 7, trained: "0/0/0000" },
           { skill: "Pills", level: 7, trained: "0/0/0000" },
-          { skill: "Alcohol", level: 7, trained: null }
+          { skill: "Alcohol", level: 0, trained: null }
         ] }
       ]
     }
