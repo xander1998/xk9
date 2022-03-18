@@ -28,11 +28,14 @@
   align-items: center;
   right: -15px;
   top: -15px;
-  user-select: none;
   border-width: 3px;
   border-color: transparent;
   border-style: solid;
-  font-size: 16px;
+  font-size: 30px;
+}
+
+.kennel_header_creator_open:hover {
+  border-color: white;
 }
 
 .kennel_body {

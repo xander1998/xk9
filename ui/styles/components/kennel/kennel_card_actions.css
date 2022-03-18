@@ -10,15 +10,17 @@
   height: 35px;
   margin: 5px;
   border-radius: 10px;
-  outline: none;
   color: white;
-  border-width: 1px;
+  border-width: 3px;
   border-color: white;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .kennel_card_action:hover {
-  border-color: gray;
+  border-color: white;
 }
 
 .kennel-card-action-success {

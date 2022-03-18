@@ -17,8 +17,8 @@ const KennelCard = {
         </kennel-card-info>
 
         <kennel-card-actions>
-          <button class="kennel_card_action kennel-card-action-success">USE</button>
-          <button class="kennel_card_action kennel-card-action-error">DELETE</button>
+          <div class="kennel_card_action kennel-card-action-success">USE</div>
+          <div class="kennel_card_action kennel-card-action-error">DELETE</div>
         </kennel-card-actions>
     </div>
   `,
