@@ -1,0 +1,8 @@
+.kennel_card {
+  position: relative;
+  width: calc(calc(883px / 3) - 20px);
+  background-color: #395B64;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px 10px 10px 10px;
+}

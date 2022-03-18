@@ -4,9 +4,7 @@ fx_version "cerulean"
 
 game { "gta5" }
 
-escrow_ignore {
-  "./sql/*.sql"
-}
+escrow_ignore {}
 
 shared_scripts {
   "shared/config.lua"

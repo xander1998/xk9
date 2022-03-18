@@ -1,0 +1,12 @@
+.kennel_card_info_data {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.kennel_card_info_data_name {
+  text-transform: capitalize;
+}

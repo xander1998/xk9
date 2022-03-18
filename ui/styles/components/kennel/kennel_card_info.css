@@ -1,0 +1,19 @@
+.kennel_card_info {
+  text-align: center;
+  color: white;
+  margin: 5px;
+}
+
+.kennel_card_info_header {
+  background-color: #2666CF;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px 10px 0 0;
+}
+
+.kennel_card_info_body {
+  background-color: #2C3333;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+}

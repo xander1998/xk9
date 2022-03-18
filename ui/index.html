@@ -6,101 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xK9 UI</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./styles/kennel.css">
+    <!-- Component Styles -->
+
+    <!-- View Styles -->
+    <link rel="stylesheet" href="./styles/views/kennel.css">
+    <link rel="stylesheet" href="./styles/components/kennel/kennel_card.css">
+    <link rel="stylesheet" href="./styles/components/kennel/kennel_card_info.css">
+    <link rel="stylesheet" href="./styles/components/kennel/kennel_card_info_data.css">
+
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
     
     <div id="app">
-      
-      <div id="doghouse_container" v-show="dogHouseUiActive">
-        <div id="doghouse_header">KENNEL</div>
-        <div id="doghouse_body">
 
-          <div class="k9_card" v-for="index in 3" :key="index">
-            <div class="k9_card_body">
-
-              
-              <div class="k9_card_info_section">
-                <div class="k9_card_info_section_header">Information</div>
-                <div class="k9_card_info_section_body">
-                  <div>Name: <span class="k9_card_info_sction_body_data">Testing</span></div>
-                  <div>Created At: <span class="k9_card_info_sction_body_data">1/6/2022</span></div>
-                  <div>Color: <span class="k9_card_info_sction_body_data">Black/Brown</span></div>
-                  <div>Gender: <span class="k9_card_info_sction_body_data">Female</span></div>
-                </div>
-              </div>
-
-              <div class="k9_card_info_section">
-                <div class="k9_card_info_section_header">Cocaine Training</div>
-                <div class="k9_card_info_section_body">
-                  <div>Level: <span class="k9_card_info_sction_body_data">7</span></div>
-                  <div>Trained: <span class="k9_card_info_sction_body_data">10/5/2021</span></div>
-                </div>
-              </div>
-
-              <div class="k9_card_info_section">
-                <div class="k9_card_info_section_header">Weed Training</div>
-                <div class="k9_card_info_section_body">
-                  <div>Level: <span class="k9_card_info_sction_body_data">7</span></div>
-                  <div>Trained: <span class="k9_card_info_sction_body_data">10/5/2021</span></div>
-                </div>
-              </div>
-
-              <div class="k9_card_info_section">
-                <div class="k9_card_info_section_header">Gunpowder Training</div>
-                <div class="k9_card_info_section_body">
-                  <div>Level: <span class="k9_card_info_sction_body_data">7</span></div>
-                  <div>Trained: <span class="k9_card_info_sction_body_data">10/5/2021</span></div>
-                </div>
-              </div>
-
-              <div class="k9_card_info_section">
-                <div class="k9_card_info_section_header">Opium Training</div>
-                <div class="k9_card_info_section_body">
-                  <div>Level: <span class="k9_card_info_sction_body_data">7</span></div>
-                  <div>Trained: <span class="k9_card_info_sction_body_data">10/5/2021</span></div>
-                </div>
-              </div>
-
-              <div class="k9_card_info_section">
-                <div class="k9_card_info_section_header">Pills Training</div>
-                <div class="k9_card_info_section_body">
-                  <div>Level: <span class="k9_card_info_sction_body_data">7</span></div>
-                  <div>Trained: <span class="k9_card_info_sction_body_data">10/5/2021</span></div>
-                </div>
-              </div>
-
-              <div class="k9_card_info_section">
-                <div class="k9_card_info_section_header">Meth Training</div>
-                <div class="k9_card_info_section_body">
-                  <div>Level: <span class="k9_card_info_sction_body_data">7</span></div>
-                  <div>Trained: <span class="k9_card_info_sction_body_data">10/5/2021</span></div>
-                </div>
-              </div>
-
-              <div class="k9_card_info_section">
-                <div class="k9_card_info_section_header">Attack Training</div>
-                <div class="k9_card_info_section_body">
-                  <div>Level: <span class="k9_card_info_sction_body_data">7</span></div>
-                  <div>Trained: <span class="k9_card_info_sction_body_data">10/5/2021</span></div>
-                </div>
-              </div>
-
-              <div class="k9_card_actions">
-                <div @click="SelectK9(index)" class="k9_card_actions_button k9_card_actions_select">SELECT</div>
-                <div @click="RetireK9(index)" class=" k9_card_actions_button k9_card_actions_delete">RETIRE</div>
-              </div>
-              
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <!-- Views -->
+      <kennel :dogs="dogs"></kennel>
 
     </div>
 
+    <!-- Libraries -->
     <script src="https://unpkg.com/vue@3"></script>
-    <script src="script.js"></script>
+
+    <!-- Component Scripts -->
+    <script src="./scripts/components/kennel/kennel_card_info_data.js"></script>
+    <script src="./scripts/components/kennel/kennel_card_info.js"></script>
+    <script src="./scripts/components/kennel/kennel_card.js"></script>
+
+    <!-- View Scripts -->
+    <script src="./scripts/views/kennel.js"></script>
+
+    <!-- Base Scripts -->
+    <script src="./scripts/listener.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
