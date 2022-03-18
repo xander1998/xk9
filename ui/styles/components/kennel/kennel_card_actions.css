@@ -1,0 +1,30 @@
+.kennel_card_actions {
+  position: relative;
+  width: calc(100% - 10px);
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.kennel_card_action {
+  height: 35px;
+  margin: 5px;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  border-width: 1px;
+  border-color: white;
+  font-weight: bold;
+}
+
+.kennel_card_action:hover {
+  border-color: gray;
+}
+
+.kennel-card-action-success {
+  background-color: #2666CF;
+}
+
+.kennel-card-action-error {
+  background-color: #2C3333;
+}

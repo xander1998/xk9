@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="./styles/components/kennel/kennel_card.css">
     <link rel="stylesheet" href="./styles/components/kennel/kennel_card_info.css">
     <link rel="stylesheet" href="./styles/components/kennel/kennel_card_info_data.css">
+    <link rel="stylesheet" href="./styles/components/kennel/kennel_card_actions.css">
+    <link rel="stylesheet" href="./styles/components/kennel/kennel_create_form.css">
+    <link rel="stylesheet" href="./styles/components/kennel/creator/kennel_create_input.css">
+    <link rel="stylesheet" href="./styles/components/kennel/creator/kennel_create_dropdown.css">
 
     <!-- Base Styles -->
     <link rel="stylesheet" href="./styles/style.css">
@@ -21,7 +25,7 @@
     
     <div id="app">
       <div v-show="showView">
-        <kennel :dogs="dogs"></kennel>
+        <kennel v-show="currentView == 'kennel'" :dogs="dogs"></kennel>
       </div>
     </div>
 
@@ -29,6 +33,10 @@
     <script src="https://unpkg.com/vue@3"></script>
 
     <!-- Component Scripts -->
+    <script src="./scripts/components/kennel/creator/kennel_create_dropdown.js"></script>
+    <script src="./scripts/components/kennel/creator/kennel_create_input.js"></script>
+    <script src="./scripts/components/kennel/kennel_create_form.js"></script>
+    <script src="./scripts/components/kennel/kennel_card_actions.js"></script>
     <script src="./scripts/components/kennel/kennel_card_info_data.js"></script>
     <script src="./scripts/components/kennel/kennel_card_info.js"></script>
     <script src="./scripts/components/kennel/kennel_card.js"></script>

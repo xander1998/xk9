@@ -15,7 +15,12 @@ const KennelCard = {
           <kennel-card-info-data name="Level" :result="skill.level"></kennel-card-info-data>
           <kennel-card-info-data name="Trained" :result="skill.trained || 'Not Trained'"></kennel-card-info-data>
         </kennel-card-info>
+
+        <kennel-card-actions>
+          <button class="kennel_card_action kennel-card-action-success">USE</button>
+          <button class="kennel_card_action kennel-card-action-error">DELETE</button>
+        </kennel-card-actions>
     </div>
   `,
-  components: { KennelCardInfo, KennelCardInfoData }
+  components: { KennelCardInfo, KennelCardInfoData, KennelCardActions }
 }
