@@ -1,9 +1,9 @@
 .kennel_create_form {
   position: absolute;
-  height: 550px;
+  height: 400px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, calc(-50% + 275px));
+  transform: translate(-50%, calc(-50% + 20px));
 }
 
 .kennel_create_form_header {
@@ -16,8 +16,76 @@
   font-size: 25px;
 }
 
+.kennel_create_form_header_close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: red;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: -15px;
+  top: -15px;
+  user-select: none;
+  border-width: 3px;
+  border-color: transparent;
+  border-style: solid;
+  font-size: 16px;
+}
+
+.kennel_create_form_header_close:hover {
+  border-color: white;
+}
+
 .kennel_create_form_body {
   background-color: #2C3333;
   border-radius: 0 0 10px 10px;
   padding: 10px;
+  max-height: 390px;
+  overflow-y: auto;
+}
+
+.kennel_create_form_body::-webkit-scrollbar {
+  width: 15px;
+  background: #395B64;
+}
+
+.kennel_create_form_body::-webkit-scrollbar-thumb {
+  background: #2666CF;
+}
+
+.kennel_create_form_body::-webkit-scrollbar-thumb:hover {
+  background: #F5F2E7;
+}
+
+.kennel_create_form_animate_in {
+  animation-name: fade-in !important;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.kennel_create_form_animate_out {
+  animation-name: fade-out;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
 }
