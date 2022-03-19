@@ -1,6 +1,6 @@
 const Kennel = {
   props: {
-    dogs: { type: Array, required: true }
+    dogs: { type: Array, required: true, default: [] }
   },
   data() {
     return {
