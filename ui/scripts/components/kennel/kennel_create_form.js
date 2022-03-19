@@ -1,6 +1,8 @@
 const KennelCreateForm = {
   data() {
     return {
+      selectedName: "",
+      selectedGender: "",
       items: ["Male", "Female"]
     }
   },
@@ -16,7 +18,7 @@ const KennelCreateForm = {
         <div class="kennel_create_form_header_close" @click="CloseCreator">X</div>
       </div>
       <div class="kennel_create_form_body">
-        <kennel-create-input label="Name" placeholder="K9's Name" />
+        <kennel-create-input v-model="selectedName" label="Name" placeholder="K9's Name" />
         <hr style="width: 310px;" />
         <kennel-create-dropdown label="Genders" :items="items" />
         <kennel-create-dropdown label="Genders" :items="items" />
