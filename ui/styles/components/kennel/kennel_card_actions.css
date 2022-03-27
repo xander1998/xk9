@@ -18,17 +18,21 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background-color: #2C3333;
 }
 
-.kennel_card_action:hover {
-  background-color: white;
-  color: black;
+.kennel_card_action_success {
+  background-color: #2C3333;
 }
 
-.kennel-card-action-success {
+.kennel_card_action_success:hover {
   background-color: #2666CF;
 }
 
-.kennel-card-action-error {
+.kennel_card_action_error {
   background-color: #2C3333;
+}
+
+.kennel_card_action_error:hover {
+  background-color: red;
 }

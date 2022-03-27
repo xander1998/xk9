@@ -4,7 +4,12 @@ const KennelCard = {
   },
   template: `
     <div class="kennel_card">
-      <kennel-card-info title="Information">
+      <kennel-card-actions>
+        <div class="kennel_card_action kennel_card_action_success">USE</div>
+        <div class="kennel_card_action kennel_card_action_error">DELETE</div>
+      </kennel-card-actions>
+
+      <kennel-card-info title="Details">
         <kennel-card-info-data name="Name" :result="dog.name"></kennel-card-info-data>
         <kennel-card-info-data name="Gender" :result="dog.gender"></kennel-card-info-data>
         <kennel-card-info-data name="Color" :result="dog.color"></kennel-card-info-data>
@@ -15,11 +20,6 @@ const KennelCard = {
           <kennel-card-info-data name="Level" :result="skill.level"></kennel-card-info-data>
           <kennel-card-info-data name="Trained" :result="skill.trained || 'Not Trained'"></kennel-card-info-data>
         </kennel-card-info>
-
-        <kennel-card-actions>
-          <div class="kennel_card_action kennel-card-action-success">USE</div>
-          <div class="kennel_card_action kennel-card-action-error">DELETE</div>
-        </kennel-card-actions>
     </div>
   `,
   components: { KennelCardInfo, KennelCardInfoData, KennelCardActions }

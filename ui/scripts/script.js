@@ -5,22 +5,16 @@ Vue.createApp({
       currentView: "kennel",
       dogs: [
         { name: "Testing1", gender: "Male", color: "Brown", recruited: "0/0/0000", skills: [
-          { skill: "Cocaine", level: 7, trained: "0/0/0000" },
-          { skill: "Meth", level: 7, trained: "0/0/0000" },
-          { skill: "Pills", level: 7, trained: "0/0/0000" },
-          { skill: "Alcohol", level: 7, trained: "0/0/0000" }
+          { skill: "Illegal Substances", level: 7, trained: "0/0/0000" },
+          { skill: "Attack", level: 7, trained: "0/0/0000" }
         ] },
         { name: "Testing2", gender: "Male", color: "Black/White", recruited: "0/0/0000", skills: [
-          { skill: "Cocaine", level: 7, trained: "0/0/0000" },
-          { skill: "Meth", level: 7, trained: "0/0/0000" },
-          { skill: "Pills", level: 7, trained: "0/0/0000" },
-          { skill: "Alcohol", level: 7, trained: "0/0/0000" }
+          { skill: "Illegal Substances", level: 7, trained: "0/0/0000" },
+          { skill: "Attack", level: 7, trained: "0/0/0000" }
         ] },
         { name: "Testing3", gender: "Female", color: "Brown", recruited: "0/0/0000", skills: [
-          { skill: "Cocaine", level: 7, trained: "0/0/0000" },
-          { skill: "Meth", level: 7, trained: "0/0/0000" },
-          { skill: "Pills", level: 7, trained: "0/0/0000" },
-          { skill: "Alcohol", level: 0, trained: null }
+          { skill: "Illegal Substances", level: 7, trained: "0/0/0000" },
+          { skill: "Attack", level: 7, trained: "0/0/0000" }
         ] }
       ]
     }
