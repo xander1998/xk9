@@ -3,7 +3,6 @@
   height: 400px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, calc(-50% + 20px));
 }
 
 .kennel_create_form_header {
@@ -72,19 +71,23 @@
 }
 
 @keyframes fade-in {
-  from {
+  0% {
     opacity: 0%;
+    transform: translate(-50%, 100%);
   }
-  to {
+  100% {
     opacity: 100%;
+    transform: translate(-50%, calc(-50% + 20px));
   }
 }
 
 @keyframes fade-out {
-  from {
+  0% {
     opacity: 100%;
+    transform: translate(-50%, calc(-50% + 20px));
   }
-  to {
+  100% {
     opacity: 0%;
+    transform: translate(-50%, 100%);
   }
 }

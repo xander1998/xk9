@@ -19,7 +19,7 @@ const Kennel = {
         <div class="kennel_header_creator_open" v-show="!showCreator" @click="showCreator = true">+</div>
       </div>
       <div class="kennel_body">
-        <kennel-card v-for="(dog, dogIndex) in dogs" :dog="dog"></kennel-card>
+        <kennel-card :id="dogIndex" v-for="(dog, dogIndex) in dogs" :dog="dog"></kennel-card>
       </div>
       <div class="kennel_container_grayscale" v-if="showCreator"></div>
       <kennel-create-form

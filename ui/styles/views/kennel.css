@@ -32,6 +32,7 @@
   border-color: transparent;
   border-style: solid;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .kennel_header_creator_open:hover {

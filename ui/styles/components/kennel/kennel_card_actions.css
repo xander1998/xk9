@@ -17,10 +17,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .kennel_card_action:hover {
-  border-color: white;
+  background-color: white;
+  color: black;
 }
 
 .kennel-card-action-success {
