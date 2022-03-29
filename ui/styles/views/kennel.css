@@ -1,9 +1,7 @@
 .kennel_container {
-  position: absolute;
-  width: 950px;
-  height: 400px;
-  top: calc(50% + 200px);
-  left: calc(50% - 375px);
+  position: relative;
+  width: 70vw;
+  height: 60vh;
 }
 
 .kennel_header {

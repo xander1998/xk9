@@ -27,6 +27,8 @@ const KennelCreateForm = {
         <kennel-create-input @updateName="UpdateName" label="Name" placeholder="K9's Name" />
         <hr style="width: 310px;" />
         <kennel-create-dropdown @genderSelected="SelectGender" label="Genders" :items="genderList" />
+        <hr style="width: 310px;" />
+        <kennel-create-dropdown @genderSelected="SelectGender" label="Genders" :items="genderList" />
       </div>
     </div>
   `,

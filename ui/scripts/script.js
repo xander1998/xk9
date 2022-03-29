@@ -15,6 +15,10 @@ Vue.createApp({
         { name: "Testing3", gender: "Female", color: "Brown", recruited: "0/0/0000", skills: [
           { skill: "Illegal Substances", level: 7, trained: "0/0/0000" },
           { skill: "Attack", level: 7, trained: "0/0/0000" }
+        ] },
+        { name: "Testing3", gender: "Female", color: "Brown", recruited: "0/0/0000", skills: [
+          { skill: "Illegal Substances", level: 7, trained: "0/0/0000" },
+          { skill: "Attack", level: 7, trained: "0/0/0000" }
         ] }
       ]
     }
