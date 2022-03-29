@@ -10,8 +10,9 @@ const KennelCreateDropdown = {
   },
   methods: {
     SelectItem(itemIndex) {
-      this.$emit("input", this.items[itemIndex]);
-      this.selectedGender = this.items[itemIndex];
+      const item = this.items[itemIndex];
+      this.$emit("genderSelected", item);
+      this.selectedGender = item;
     }
   },
   template: `

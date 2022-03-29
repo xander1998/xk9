@@ -1,8 +1,12 @@
 const KennelCreateInput = {
   props: {
-    value: {},
     label: { type: String, required: true },
     placeholder: { type: String, required: false }
+  },
+  methods: {
+    UpdateName(name) {
+      this.$emit("updateName", name);
+    }
   },
   template: `
     <div class="kennel_create_input">
@@ -11,8 +15,7 @@ const KennelCreateInput = {
         :placeholder="placeholder"
         type="text"
         class="kennel_create_input_handler"
-        v-bind:value="value"
-        v-on:input="$emit('input', $event.target.value)"
+        v-on:input="UpdateName($event.target.value)"
       />
     </div>
   `
