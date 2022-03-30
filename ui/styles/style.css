@@ -4,6 +4,7 @@ body {
   margin: 0;
   overflow: hidden;
   background-color: gray;
+  font-size: 16px;
 }
 
 #app {

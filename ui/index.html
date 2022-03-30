@@ -1,51 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xK9 UI</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xK9 UI</title>
 
-    <!-- Component Styles -->
+  <!-- Component Styles -->
 
-    <!-- View Styles -->
-    <link rel="stylesheet" href="./styles/views/kennel.css">
-    <link rel="stylesheet" href="./styles/components/kennel/kennel_card.css">
-    <link rel="stylesheet" href="./styles/components/kennel/kennel_card_info.css">
-    <link rel="stylesheet" href="./styles/components/kennel/kennel_card_info_data.css">
-    <link rel="stylesheet" href="./styles/components/kennel/kennel_card_actions.css">
-    <link rel="stylesheet" href="./styles/components/kennel/kennel_create_form.css">
-    <link rel="stylesheet" href="./styles/components/kennel/creator/kennel_create_input.css">
-    <link rel="stylesheet" href="./styles/components/kennel/creator/kennel_create_dropdown.css">
+  <!-- View Styles -->
 
-    <!-- Base Styles -->
-    <link rel="stylesheet" href="./styles/style.css">
-  </head>
-  <body>
-    
-    <div id="app">
-      <div v-show="showView">
-        <kennel v-show="currentView == 'kennel'" :dogs="dogs"></kennel>
-      </div>
-    </div>
-
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+  
     <!-- Libraries -->
     <script src="https://unpkg.com/vue@3"></script>
 
     <!-- Component Scripts -->
-    <script src="./scripts/components/kennel/creator/kennel_create_dropdown.js"></script>
-    <script src="./scripts/components/kennel/creator/kennel_create_input.js"></script>
-    <script src="./scripts/components/kennel/kennel_create_form.js"></script>
-    <script src="./scripts/components/kennel/kennel_card_actions.js"></script>
-    <script src="./scripts/components/kennel/kennel_card_info_data.js"></script>
-    <script src="./scripts/components/kennel/kennel_card_info.js"></script>
-    <script src="./scripts/components/kennel/kennel_card.js"></script>
 
     <!-- View Scripts -->
-    <script src="./scripts/views/kennel.js"></script>
 
     <!-- Base Scripts -->
     <script src="./scripts/listener.js"></script>
     <script src="./scripts/script.js"></script>
-  </body>
+</body>
 </html>
