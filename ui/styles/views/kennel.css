@@ -1,0 +1,228 @@
+.kennel_container {
+  width: 50vw;
+  min-width: 310px;
+  min-height: 327px;
+  font-size: var(--base-font-size);
+}
+
+.kennel_header {
+  position: relative;
+  text-align: center;
+  color: var(--solid-white);
+  background-color: var(--solid-black);
+  padding: 0.5em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: var(--header-font-size);
+}
+
+.kennel_container_close {
+  position: absolute;
+  border-radius: 1em;
+  background-color: var(--red);
+  width: 1em;
+  height: 1em;
+  right: 0.5em;
+  top: 0.5em;
+  font-size: var(--header-font-size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em;
+  opacity: 0.8;
+  user-select: none;
+  cursor: pointer;
+}
+
+.kennel_container_close:hover {
+  opacity: 1.0;
+}
+
+.kennel_container_close image {
+  width: 100%;
+  height: 100%;
+  content: url("../../images/icons/close.svg");
+}
+
+.kennel_container_new {
+  position: absolute;
+  border-radius: 1em;
+  background-color: var(--lime-green);
+  width: 1em;
+  height: 1em;
+  right: 2em;
+  top: 0.5em;
+  font-size: var(header-font-size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em;
+  opacity: 0.8;
+  user-select: none;
+  cursor: pointer;
+}
+
+.kennel_container_new:hover {
+  opacity: 1;
+}
+
+.kennel_container_new image {
+  width: 100%;
+  height: 100%;
+  content: url("../../images/icons/plus.svg");
+}
+
+.kennel_body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: var(--grey);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0.5em;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  font-size: var(--base-font-size);
+}
+
+.kennel_dog_selected {
+   border-color: white;
+   opacity: 1;
+}
+
+.kennel_dog_selected > .kennel_card_header {
+  background-color: var(--solid-black);
+}
+
+.kennel_pagination {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5em;
+  background-color: var(--solid-black);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 10px;
+}
+
+.kennel_pagination_button {
+  color: var(--solid-white);
+  width: 40%;
+  height: 100%;
+  background-color: var(--grey);
+  padding: 1em;
+  opacity: 0.5;
+  margin: 0.2em;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+}
+
+.kennel_pagination_button:hover {
+  opacity: 1.0;
+}
+
+.kennel_pagination_page {
+  margin-left: 2em;
+  margin-right: 2em;
+  color: var(--solid-white);
+  user-select: none;
+}
+
+.kennel_skills {
+  position: absolute;
+  border-radius: 10px;
+  background-color: var(--solid-black);
+  z-index: -1;
+  padding: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.kennel_skills_cover {
+  position: absolute;
+  background-color: var(--solid-black);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  top: 10px;
+  left: 0px;
+  transform: translateY(-10px);
+}
+
+.kennel_skills_animate_in {
+  animation-name: skills-slide-out;
+  animation-duration: 500ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.kennel_skills_animate_out {
+  animation-name: skills-slide-in;
+  animation-duration: 500ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1 ;
+  animation-fill-mode: forwards;
+}
+
+.kennel_skills_cover_animate_cover {
+  animation-name: cover-skills;
+  animation-duration: 250ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1 ;
+  animation-fill-mode: forwards;
+}
+
+.kennel_skills_cover_animate_uncover {
+  animation-name: uncover-skills;
+  animation-duration: 250ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1 ;
+  animation-fill-mode: forwards;
+}
+
+@keyframes skills-slide-out {
+  from {
+    left: 110vw;
+  }
+  to {
+    left: calc(100% + 10px);
+  }
+}
+
+@keyframes skills-slide-in {
+  from {
+    left: calc(100% + 10px);
+  }
+  to {
+    left: 110vw;
+  }
+}
+
+@keyframes cover-skills {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes uncover-skills {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}

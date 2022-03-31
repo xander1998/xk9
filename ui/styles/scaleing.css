@@ -1,0 +1,17 @@
+@media only screen and (max-width: 1200px) {
+  /* Root Scale */
+  :root {
+    --header-font-size: 14px;
+    --base-font-size: 9px;
+  }
+
+  /* Kennel */
+  .kennel_container {
+    transform: translate(-15%);
+  }
+
+  /* Kennel Cards */
+  .kennel_card_body_info {
+    font-size: 10px;
+  }
+}

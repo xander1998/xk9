@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,42 @@
   <title>xK9 UI</title>
 
   <!-- Component Styles -->
+  <link rel="stylesheet" href="./styles/components/kennel/kennel_card.css">
+  <link rel="stylesheet" href="./styles/components/kennel/kennel_skill.css">
 
   <!-- View Styles -->
+  <link rel="stylesheet" href="./styles/views/kennel.css">
 
   <!-- Base Styles -->
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/scaleing.css">
 </head>
+
 <body>
-  
-    <!-- Libraries -->
-    <script src="https://unpkg.com/vue@3"></script>
 
-    <!-- Component Scripts -->
+  <div id="app" v-show="showView">
 
-    <!-- View Scripts -->
+    <div v-show="showView">
+      <kennel @close="CloseView" v-show="currentView == 'kennel'" :dogs="dogs" />
+    </div>
 
-    <!-- Base Scripts -->
-    <script src="./scripts/listener.js"></script>
-    <script src="./scripts/script.js"></script>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- Component Scripts -->
+  <script src="./scripts/components/kennel/kennel_card.js"></script>
+  <script src="./scripts/components/kennel/kennel_skill.js"></script>
+
+  <!-- View Scripts -->
+  <script src="./scripts/views/kennel.js"></script>
+
+  <!-- Base Scripts -->
+  <script src="./scripts/functions.js"></script>
+  <script src="./scripts/listener.js"></script>
+  <script src="./scripts/script.js"></script>
 </body>
+
 </html>

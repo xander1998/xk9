@@ -1,0 +1,29 @@
+.kennel_skill_header {
+  padding: 1em;
+  text-align: center;
+  color: var(--solid-white);
+  font-size: var(--header-font-size);
+  text-decoration: underline;
+}
+
+.kennel_skill_level {
+  padding: 1em;
+  text-align: center;
+  color: var(--solid-white);
+  font-size: var(--base-font-size);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kennel_skill_trained {
+  padding: 1em;
+  text-align: center;
+  color: var(--solid-white);
+  font-size: var(--base-font-size);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

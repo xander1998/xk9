@@ -1,4 +1,18 @@
-/* https://colorhunt.co/palette/2c3333395b642666cff5f2e7 */
+/* https://colorhunt.co/palette/222831393e4600adb5eeeeee */
+
+:root {
+  --black: #222831;
+  --grey: #393E46;
+  --teal: #00ADB5;
+  --light-gray: #EEEEEE;
+  --solid-white: #ffffff;
+  --solid-black: #000000;
+  --lime-green: #32CD32;
+  --red: #ff0000;
+
+  --header-font-size: 25px;
+  --base-font-size: 16px;
+}
 
 body {
   margin: 0;

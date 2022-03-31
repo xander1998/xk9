@@ -1,0 +1,54 @@
+.kennel_card {
+  color: var(--solid-white);
+  margin: 0.2rem;
+  font-size: var(--base-font-size);
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 10px;
+  user-select: none;
+  opacity: 0.8;
+  flex: 1 0 40%;
+}
+
+.kennel_card:hover {
+  opacity: 1.0;
+}
+
+.kennel_card_header {
+  padding: 0.5em;
+  font-size: var(--header-font-size);
+  color: var(--solid-white);
+  text-align: center;
+  background-color: var(--black);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.kennel_card:hover .kennel_card_header {
+  background-color: var(--solid-black);
+}
+
+.kennel_card_body {
+  background-color: var(--black);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.kennel_card_body_info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.kennel_card_body_info_title {
+  margin: 1em;
+}
+
+.kennel_card_body_info_data {
+  margin: 1em;
+}
+
+.kennel_card_footer {
+  display: flex;
+  flex-direction: row;
+}
