@@ -28,32 +28,29 @@ const Kennel = {
       else { this.page = this.page + 1; }
     },
     async SelectDog(dogIndex) {
-      this.selectedDog = dogIndex;
-
-      if (this.selectedDog != null) {
+      if (this.selectedDog == null) {
+        this.showDogSkills = true;
+        this.selectedDog = dogIndex;
+        await awaitResolveAfter(750);
+      } else {
         await this.HideDogsSkills();
         this.selectedDog = dogIndex;
-      } else {
-        this.selectedDog = dogIndex;
-        this.showDogSkills = true;
-        await awaitResolveAfter(750);
       }
 
       await this.ShowDogsSkills();
     },
     async ShowDogsSkills() {
-      this.showSkillsCover = true;
+      this.showSkillsCover = false;
     },
     async HideDogsSkills() {
-      this.showSkillsCover = false;
+      this.showSkillsCover = true;
 
       await awaitResolveAfter(500);
     },
     async CloseButton() {
-      this.showSkillsCover = false;
-      await awaitResolveAfter(500);
+      await this.HideDogsSkills();
 
-      this.showDogSkills = true;
+      this.showDogSkills = false;
       await awaitResolveAfter(750);
 
       this.$emit("close");
@@ -88,7 +85,7 @@ const Kennel = {
         </div>
 
         <div
-          :class="{ 'kennel_skills': true, 'kennel_skills_animate_out': showDogSkills, 'kennel_skills_animate_in': !showDogSkills }"
+          :class="{ 'kennel_skills': true, 'kennel_skills_animate_out': !showDogSkills, 'kennel_skills_animate_in': showDogSkills }"
           v-if="selectedDog != null && dogs[selectedDog].skills">
 
           <kennel-skill
@@ -97,7 +94,7 @@ const Kennel = {
             :level="skill.level"
             :trained="skill.trained"
           />
-          <div :class="{ 'kennel_skills_cover': true, 'kennel_skills_cover_animate_cover': !showSkillsCover, 'kennel_skills_cover_animate_uncover': showSkillsCover }"></div>
+          <div :class="{ 'kennel_skills_cover': true, 'kennel_skills_cover_animate_cover': showSkillsCover, 'kennel_skills_cover_animate_uncover': !showSkillsCover }"></div>
         </div>
       </div>
 
