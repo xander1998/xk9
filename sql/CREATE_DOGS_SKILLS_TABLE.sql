@@ -4,11 +4,11 @@ CREATE TABLE IF NOT EXISTS `dogs_skills` (
   PRIMARY KEY (`key`)
 );
 
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES ('cocaine', 'drug');
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES ('weed', 'drug');
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES ('opium', 'drug');
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES ('pills', 'drugs');
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES ('meth', 'drugs');
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES ('gunpowder', 'weapon');
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES ('attack', 'combat');
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES ('intimidation', 'combat');
+INSERT INTO `dogs_skills` (`key`, `type`) VALUES
+  ('cocaine', 'drug'),
+  ('weed', 'drug'),
+  ('opium', 'drug'),
+  ('pills', 'drugs'),
+  ('meth', 'drugs'),
+  ('attack', 'combat'),
+  ('intimidation', 'combat')
