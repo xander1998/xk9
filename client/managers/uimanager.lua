@@ -24,7 +24,10 @@ function xUIManager:GetCurrentView()
 end
 
 function xUIManager:SendMessage(type, data)
-  SendNUIMessage(type, data)
+  SendNUIMessage({
+    type = type,
+    data = data
+  })
 end
 
 function xUIManager:CreateCallback(type, callback)

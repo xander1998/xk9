@@ -6,6 +6,26 @@ game { "gta5" }
 
 escrow_ignore {}
 
+ui_page "ui/index.html"
+
+files {
+  "ui/index.html",
+
+  -- Images
+  "ui/images/dogs/*.png",
+  "ui/images/icons/*.svg",
+
+  -- Scripts
+  "ui/scripts/components/kennel/*.js",
+  "ui/scripts/views/*.js",
+  "ui/scripts/*.js",
+
+  -- Styles
+  "ui/styles/components/kennel/*.css",
+  "ui/styles/views/*.css",
+  "ui/styles/*.css"
+}
+
 shared_scripts {
   "shared/config.lua"
 }
