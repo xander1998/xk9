@@ -31,7 +31,7 @@ const Kennel = {
       if (this.selectedDog == null) {
         this.showDogSkills = true;
         this.selectedDog = dogIndex;
-        await awaitResolveAfter(750);
+        await resolveAfter(750);
       } else {
         await this.HideDogsSkills();
         this.selectedDog = dogIndex;
@@ -45,13 +45,13 @@ const Kennel = {
     async HideDogsSkills() {
       this.showSkillsCover = true;
 
-      await awaitResolveAfter(500);
+      await resolveAfter(500);
     },
     async CloseButton() {
       await this.HideDogsSkills();
 
       this.showDogSkills = false;
-      await awaitResolveAfter(750);
+      await resolveAfter(750);
 
       this.$emit("close");
     }
