@@ -3,15 +3,17 @@ xUIManager.IsOpen = false
 xUIManager.CurrentView = "kennel"
 
 function xUIManager:OpenUI()
-  self:SendMessage("show-view", { show = true })
+  self:SendMessage("showView", { show = true })
+  self:SetFocus(true, true)
 end
 
 function xUIManager:CloseUI()
-  self:SendMessage("show-view", { show = false })
+  self:SendMessage("showView", { show = false })
+  self:SetFocus(false, false)
 end
 
 function xUIManager:ChangeView(view)
-  self:SendMessage("change-view", { view = view })
+  self:SendMessage("changeView", { view = view })
   self.CurrentView = page
 end
 
@@ -32,4 +34,9 @@ end
 
 function xUIManager:CreateCallback(type, callback)
   RegisterNUICallback(type, callback)
+end
+
+function xUIManager:SetFocus(hasFocus, hasCursor)
+  print(hasFocus, hasCursor)
+  SetNuiFocus(hasFocus, hasCursor)
 end

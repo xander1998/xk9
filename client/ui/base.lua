@@ -1,3 +1,5 @@
-xUIManager:CreateCallback("close-view", function(data, cb)
+xUIManager:CreateCallback("closeView", function(data, cb)
   xUIManager:CloseUI()
+
+  cb("ok")
 end)

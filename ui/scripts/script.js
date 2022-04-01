@@ -15,12 +15,12 @@ Vue.createApp({
     },
     CloseView() {
       this.showView = false;
-      axios.post("http://xk9/close-view");
+      axios.post(`https://${GetParentResourceName()}/closeView`);
     }
   },
   components: { Kennel },
   mounted() {
-    RegisterEvent("show-view", this.EVENT_ShowView);
-    RegisterEvent("change-view", this.EVENT_ChangeView);
+    RegisterEvent("showView", this.EVENT_ShowView);
+    RegisterEvent("changeView", this.EVENT_ChangeView);
   },
 }).mount("#app");

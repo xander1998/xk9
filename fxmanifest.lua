@@ -38,5 +38,6 @@ server_scripts {
 client_scripts {
   "client/managers/*.lua",
   "client/classes/*.lua",
+  "client/ui/*.lua",
   "client/client.lua"
 }
