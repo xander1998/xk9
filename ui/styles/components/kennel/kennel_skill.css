@@ -24,6 +24,13 @@
   font-size: var(--base-font-size);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+}
+
+.kennel_skill_centered {
+  justify-content: center;
+}
+
+.kennel_skill_spaced {
+  justify-content: space-around;
 }
