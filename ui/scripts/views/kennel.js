@@ -56,7 +56,7 @@ const Kennel = {
       this.$emit("close");
     }
   },
-  components: { KennelCard, KennelSkill },
+  components: { KennelCard, KennelSkill, KennelCreator },
   template: `
     <div class="kennel_container">
       <div class="kennel_header">
@@ -96,6 +96,8 @@ const Kennel = {
           />
           <div :class="{ 'kennel_skills_cover': true, 'kennel_skills_cover_animate_cover': showSkillsCover, 'kennel_skills_cover_animate_uncover': !showSkillsCover }"></div>
         </div>
+
+        <kennel-creator></kennel-creator>
       </div>
 
       <!-- Creator UI Here -->

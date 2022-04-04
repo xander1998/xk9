@@ -1,0 +1,29 @@
+.kennel_creator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+}
+
+.kennel_creator_header {
+  font-size: var(--header-font-size);
+  padding: 1rem;
+  text-align: center;
+  color: var(--solid-white);
+  background-color: var(--solid-black);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.kennel_creator_body {
+  font-size: var(--base-font-size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  background-color: var(--black);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: var(--solid-white);
+}
