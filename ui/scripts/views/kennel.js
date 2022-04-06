@@ -20,12 +20,20 @@ const Kennel = {
       return false;
     },
     DecreasePage() {
-      if (this.page - 1 < 1) { this.page = this.GetPageCount(); }
-      else { this.page = this.page - 1; }
+      let newPage = this.page - 1;
+      if (newPage < 1) { newPage = this.GetPageCount(); }
+      else { newPage = this.page - 1; }
+
+      this.page = newPage;
+      console.log(this.page);
     },
     IncreasePage() {
-      if (this.page + 1 > this.GetPageCount()) { this.page = 1 }
-      else { this.page = this.page + 1; }
+      let newPage = this.page + 1;
+
+      if (newPage > this.GetPageCount()) { newPage = 1 }
+      else { newPage = this.page + 1; }
+
+      this.page = newPage;
     },
     GetPageCount() {
       return Math.ceil(this.dogs.length / this.dogPerPage);

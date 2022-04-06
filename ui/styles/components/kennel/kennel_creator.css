@@ -33,3 +33,12 @@
   overflow-x: hidden;
   padding: 2em;
 }
+
+.kennel_creator_body::-webkit-scrollbar {
+  background-color: var(--solid-black);
+}
+
+.kennel_creator_body::-webkit-scrollbar-thumb {
+  background-color: var(--grey);
+  border-radius: 10px;
+}
