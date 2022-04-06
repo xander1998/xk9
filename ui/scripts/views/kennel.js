@@ -97,10 +97,10 @@ const Kennel = {
           <div :class="{ 'kennel_skills_cover': true, 'kennel_skills_cover_animate_cover': showSkillsCover, 'kennel_skills_cover_animate_uncover': !showSkillsCover }"></div>
         </div>
 
-        <kennel-creator></kennel-creator>
+        <kennel-creator v-show="showCreator"></kennel-creator>
       </div>
 
-      <!-- Creator UI Here -->
+      <div class="kennel_cover"></div>
     </div>
   `
 }

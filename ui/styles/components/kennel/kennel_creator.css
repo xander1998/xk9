@@ -3,7 +3,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 20rem;
+  width: 25rem;
 }
 
 .kennel_creator_header {
@@ -17,13 +17,19 @@
 }
 
 .kennel_creator_body {
+  content: "";
   font-size: var(--base-font-size);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em;
+  align-items: center;
+  padding: 2em;
   background-color: var(--black);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   color: var(--solid-white);
+  max-height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2em;
 }

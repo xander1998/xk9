@@ -1,0 +1,30 @@
+.kennel_creator_input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  padding: 1em;
+  background-color: var(--solid-black);
+  border-radius: 10px;
+}
+
+.kennel_creator_input_label {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.kennel_creator_input input {
+  height: 2em;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.kennel_creator_input input:focus {
+  border-color: var(--grey);
+  outline: none;
+}

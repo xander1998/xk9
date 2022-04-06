@@ -65,16 +65,14 @@ Citizen.CreateThread(function()
   while true do
 
     if xK9Manager:IsK9Handler() then
-      if IsDisabledControlPressed(0, 19) then
+      if IsDisabledControlPressed(0, 19) --[[ LEFT ALT ]] then
         DisableControlAction(0, 73, true)
         DisableControlAction(0, 26, true)
 
         if IsPlayerFreeAiming(player) then
-          if IsDisabledControlJustPressed(0, 73) then
+          if IsDisabledControlJustPressed(0, 73) --[[ X ]] then
             local k9 = xK9Manager:GetK9()
             local found, target = GetEntityPlayerIsFreeAimingAt(player)
-
-            print("Found Ped: " .. tostring(found) .. " | Target: " .. tostring(target))
 
             if found then
               if IsEntityAPed(target) then
@@ -86,13 +84,13 @@ Citizen.CreateThread(function()
           end
         end
 
-        if IsDisabledControlJustPressed(0, 26) then
+        if IsDisabledControlJustPressed(0, 26) --[[ C ]] then
           local k9 = xK9Manager:GetK9()
           k9:Heel()
         end
 
       else
-        if IsControlJustPressed(0, 73) then
+        if IsControlJustPressed(0, 73) --[[ X ]] then
           local k9 = xK9Manager:GetK9()
           print("Attack Key Pressed!")
           k9:Attack()

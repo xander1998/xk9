@@ -17,11 +17,13 @@ files {
 
   -- Scripts
   "ui/scripts/components/kennel/*.js",
+  "ui/scripts/components/kennel/form/*.js",
   "ui/scripts/views/*.js",
   "ui/scripts/*.js",
 
   -- Styles
   "ui/styles/components/kennel/*.css",
+  "ui/styles/components/kennel/form/*.css",
   "ui/styles/views/*.css",
   "ui/styles/*.css"
 }
