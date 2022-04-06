@@ -4,7 +4,7 @@ const Kennel = {
   },
   data() {
     return {
-      showCreator: false,
+      showCreator: true,
       page: 1,
       dogPerPage: 4,
       showDogSkills: false,

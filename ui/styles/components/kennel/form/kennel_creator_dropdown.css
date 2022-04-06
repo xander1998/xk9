@@ -26,6 +26,11 @@
   position: relative;
   padding: 0.5em;
   width: calc(15% - 0.5em);
+  opacity: 0.6;
+}
+
+.kennel_creator_dropdown_button:hover {
+  opacity: 1;
 }
 
 .kennel_creator_dropdown_button image {
@@ -41,16 +46,15 @@
   background-color: var(--black);
   padding: 1em;
   margin: 0.2em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent
 }
 
 .kennel_creator_dropdown_item:hover {
-
+  border-color: var(--white);
 }
 
-.kennel_creator_dropdown_active {
-
-}
-
-.kennel_creator_dropdown_button_active {
-
+.kennel_creator_dropdown_item_active {
+  border-color: white;
 }
