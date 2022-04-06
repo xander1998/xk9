@@ -11,11 +11,19 @@ const KennelCreator = {
     },
     nameChanged(value) {
       this.name = value;
+    },
+    closeCreator() {
+      this.$emit("close");
     }
   },
   template: `
     <div class="kennel_creator">
-      <div class="kennel_creator_header">K9 CREATOR</div>
+      <div class="kennel_creator_header">
+        K9 CREATOR
+        <div class="kennel_container_close" v-show="!showCreator" @click="closeCreator">
+          <image />
+        </div>
+      </div>
       <div class="kennel_creator_body">
       </div>
     </div>

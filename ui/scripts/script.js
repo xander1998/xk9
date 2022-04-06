@@ -1,9 +1,14 @@
 Vue.createApp({
   data() {
     return {
-      showView: false,
+      showView: true,
       currentView: "kennel",
-      dogs: []
+      dogs: [
+        { name: "Test", gender: "Male" },
+        { name: "Test", gender: "Male" },
+        { name: "Test", gender: "Male" },
+        { name: "Test", gender: "Male" }
+      ]
     }
   },
   methods: {

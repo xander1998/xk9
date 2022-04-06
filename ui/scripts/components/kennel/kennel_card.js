@@ -22,7 +22,12 @@ const KennelCard = {
       </div>
       </div>
       <div class="kennel_card_footer">
-        <slot name="footer" />
+        <div class="kennel_card_button kennel_card_select">
+          <image />
+        </div>
+        <div class="kennel_card_button kennel_card_delete">
+          <image />
+        </div>
       </div>
     </div>
   `

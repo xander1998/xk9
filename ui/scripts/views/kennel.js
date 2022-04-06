@@ -54,6 +54,9 @@ const Kennel = {
       await resolveAfter(750);
 
       this.$emit("close");
+    },
+    ToggleCreator() {
+      this.showCreator = !this.showCreator;
     }
   },
   components: { KennelCard, KennelSkill, KennelCreator },
@@ -61,10 +64,10 @@ const Kennel = {
     <div class="kennel_container">
       <div class="kennel_header">
         KENNEL
-        <div class="kennel_container_close" @click="CloseButton">
+        <div class="kennel_container_close" v-show="!showCreator" @click="CloseButton">
           <image />
         </div>
-        <div class="kennel_container_new">
+        <div class="kennel_container_new" v-show="!showCreator" @click="ToggleCreator">
           <image />
         </div>
       </div>
@@ -78,7 +81,7 @@ const Kennel = {
           @click="SelectDog(dogIndex)"
         />
 
-        <div class="kennel_pagination">
+        <div class="kennel_pagination" v-show="!showCreator">
           <div class="kennel_pagination_button" @click="DecreasePage">[</div>
           <div class="kennel_pagination_page">{{ page }}</div>
           <div class="kennel_pagination_button" @click="IncreasePage">]</div>
@@ -97,10 +100,10 @@ const Kennel = {
           <div :class="{ 'kennel_skills_cover': true, 'kennel_skills_cover_animate_cover': showSkillsCover, 'kennel_skills_cover_animate_uncover': !showSkillsCover }"></div>
         </div>
 
-        <kennel-creator v-show="showCreator"></kennel-creator>
-      </div>
+        <div class="kennel_cover" v-show="showCreator"></div>
 
-      <div class="kennel_cover"></div>
+        <kennel-creator v-show="showCreator" @close="ToggleCreator"></kennel-creator>
+      </div>
     </div>
   `
 }

@@ -31,8 +31,6 @@
 
 .kennel_card_body {
   background-color: var(--black);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 .kennel_card_body_info {
@@ -51,4 +49,35 @@
 .kennel_card_footer {
   display: flex;
   flex-direction: row;
+  background-color: var(--black);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  justify-content: center;
+}
+
+.kennel_card_button {
+  display: flex;
+  padding: 1em;
+  margin: 1em;
+  width: 5em;
+  border-radius: 10px;
+  height: 1em;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  opacity: 0.8;
+}
+
+.kennel_card_button:hover {
+  opacity: 1;
+}
+
+.kennel_card_select {
+  content: url("../../../images/icons/check.svg");
+  background-color: var(--lime-green);
+}
+
+.kennel_card_delete {
+  content: url("../../../images/icons/delete.svg");
+  background-color: var(--red);
 }

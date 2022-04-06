@@ -7,11 +7,11 @@
 
   /* Kennel */
   .kennel_container {
-    transform: translate(-15%);
+    transform: translate(-5%, -5%);
   }
 
   /* Kennel Cards */
   .kennel_card_body_info {
-    font-size: 10px;
+    font-size: 9px;
   }
 }
