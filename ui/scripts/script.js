@@ -3,12 +3,7 @@ Vue.createApp({
     return {
       showView: true,
       currentView: "kennel",
-      dogs: [
-        { name: "Test", gender: "Male" },
-        { name: "Test", gender: "Male" },
-        { name: "Test", gender: "Male" },
-        { name: "Test", gender: "Male" }
-      ]
+      dogs: []
     }
   },
   methods: {

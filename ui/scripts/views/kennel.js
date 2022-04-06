@@ -20,12 +20,15 @@ const Kennel = {
       return false;
     },
     DecreasePage() {
-      if (this.page - 1 < 1) { this.page = this.dogs.length / this.dogPerPage; }
+      if (this.page - 1 < 1) { this.page = this.GetPageCount(); }
       else { this.page = this.page - 1; }
     },
     IncreasePage() {
-      if (this.page + 1 > this.dogs.length / this.dogPerPage) { this.page = 1 }
+      if (this.page + 1 > this.GetPageCount()) { this.page = 1 }
       else { this.page = this.page + 1; }
+    },
+    GetPageCount() {
+      return Math.ceil(this.dogs.length / this.dogPerPage);
     },
     async SelectDog(dogIndex) {
       if (this.selectedDog == null) {
@@ -83,7 +86,7 @@ const Kennel = {
 
         <div class="kennel_pagination" v-show="!showCreator">
           <div class="kennel_pagination_button" @click="DecreasePage">[</div>
-          <div class="kennel_pagination_page">{{ page }}</div>
+          <div class="kennel_pagination_page">{{ page }} / {{ GetPageCount() || 1 }}</div>
           <div class="kennel_pagination_button" @click="IncreasePage">]</div>
         </div>
 

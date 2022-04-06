@@ -118,7 +118,6 @@
 
 .kennel_pagination_button {
   color: var(--solid-white);
-  width: 40%;
   height: 100%;
   background-color: var(--grey);
   padding: 1em;
