@@ -33,8 +33,12 @@
   opacity: 1;
 }
 
-.kennel_creator_dropdown_button image {
-  content: url("../../../../images/icons/dropdown.svg");
+.kennel_creator_dropdown_button_image {
+  content: url("../../../../images/icons/down-arrow.svg");
+}
+
+.kennel_creator_dropdown_button_image_active {
+  content: url("../../../../images/icons/up-arrow.svg");
 }
 
 .kennel_creator_dropdown_items {
