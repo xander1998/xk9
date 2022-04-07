@@ -37,6 +37,5 @@ function xUIManager:CreateCallback(type, callback)
 end
 
 function xUIManager:SetFocus(hasFocus, hasCursor)
-  print(hasFocus, hasCursor)
   SetNuiFocus(hasFocus, hasCursor)
 end

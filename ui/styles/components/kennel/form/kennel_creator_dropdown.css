@@ -17,6 +17,7 @@
   position: relative;
   padding: 1em;
   width: calc(75% - 1em);
+  text-transform: uppercase;
 }
 
 .kennel_creator_dropdown_button {
@@ -41,6 +42,13 @@
   content: url("../../../../images/icons/up-arrow.svg");
 }
 
+.kennel_creator_dropdown_selected_label {
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .kennel_creator_dropdown_items {
   width: 100%;
   padding: 0.2em;
@@ -52,7 +60,9 @@
   margin: 0.2em;
   border-style: solid;
   border-width: 1px;
-  border-color: transparent
+  border-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .kennel_creator_dropdown_item:hover {

@@ -8,6 +8,7 @@
   padding: 1em;
   border-radius: 10px;
   background-color: var(--solid-black);
+  text-transform: uppercase;
 }
 
 .kennel_creator_checkbox input {

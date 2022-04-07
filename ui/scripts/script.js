@@ -1,7 +1,7 @@
 Vue.createApp({
   data() {
     return {
-      showView: true,
+      showView: false,
       currentView: "kennel",
       dogs: []
     }

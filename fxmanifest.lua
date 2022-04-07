@@ -11,6 +11,9 @@ ui_page "ui/index.html"
 files {
   "ui/index.html",
 
+  -- Fonts
+  "ui/fonts/*.ttf",
+
   -- Images
   "ui/images/dogs/*.png",
   "ui/images/icons/*.svg",

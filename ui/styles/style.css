@@ -12,6 +12,17 @@
 
   --header-font-size: 25px;
   --base-font-size: 16px;
+  --font: EurostileBold;
+}
+
+@font-face {
+  font-family: Eurostile;
+  src: url("../fonts/EuroStyleNormal.ttf");
+}
+
+@font-face {
+  font-family: EurostileBold;
+  src: url("../fonts/EurostileBold.ttf");
 }
 
 body {
@@ -19,13 +30,13 @@ body {
   overflow: hidden;
   background-color: transparent;
   font-size: 16px;
+  font-family: var(--font);
 }
 
 #app {
   position: relative;
   width: 100vw;
   height: 100vh;
-  font-family: Verdana;
   display: flex;
   flex-direction: column;
   justify-content: center;

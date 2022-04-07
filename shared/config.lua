@@ -2,6 +2,27 @@ xK9Config = {}
 
 xK9Config.Framework = nil -- [[ ESX / QBCore ]]
 
+xK9Config.K9Colors = {
+  ["lightbrown_black"] = { label = "Light Brown/Black", index = 0 },
+  ["brown"] = { label = "Brown", index = 1 },
+  ["darkbrown_black"] = { label = "Dark Brown/Black", index = 2 },
+  ["black"] = { label = "Black", index = 3 }
+}
+
+xK9Config.K9VestColors = {
+  ["black"] = { label = "Black Vest", index = 0 },
+  ["green"] = { label = "Green Vest", index = 1 },
+  ["red"] = { label = "Red Vest", index = 2 },
+  ["blue"] = { label = "Blue Vest", index = 3 }
+}
+
+xK9Config.K9VestTypes = {
+  ["police"] = { label = "Police Patches", index = 0 },
+  ["sheriff"] = { label = "Sheriff Patches", index = 1 },
+  ["rescue"] = { label = "Rescue Patches", index = 2 },
+  ["security"] = { label = "Security Patches", index = 3 }
+}
+
 xK9Config.Kennels = {
   { model = "prop_dog_cage_01", position = vector3(460.71, -991.67, 23.91), rotation = vector3(0.0, 0.0, 110.91) },
   { model = "prop_dog_cage_01", position = vector3(1857.55, 3688.07, 33.26), rotation = vector3(0.0, 0.0, -65.19) },

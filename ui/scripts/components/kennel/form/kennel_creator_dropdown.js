@@ -14,8 +14,8 @@ const KennelCreatorDropdown = {
       this.isOpen = !this.isOpen;
     },
     SelectItem(itemIndex) {
-      this.selectedItem = this.items[itemIndex];
-      this.$emit("itemSelected", this.selectedItem);
+      this.selectedItem = itemIndex;
+      this.$emit("itemSelected", this.items[itemIndex]);
     }
   },
   template: `
@@ -24,12 +24,13 @@ const KennelCreatorDropdown = {
       <div :class="{ 'kennel_creator_dropdown_button': true, 'kennel_creator_dropdown_button_active': isOpen }" @click="ToggleDropdown">
         <image :class="{ 'kennel_creator_dropdown_button_image': !isOpen, 'kennel_creator_dropdown_button_image_active': isOpen }" />
       </div>
+      <div class="kennel_creator_dropdown_selected_label" v-if="selectedItem">{{ items[selectedItem].label }}</div>
       <div class="kennel_creator_dropdown_items" v-show="isOpen">
         <div
           :class="{ 'kennel_creator_dropdown_item': true, 'kennel_creator_dropdown_item_active': selectedItem == itemIndex }"
           v-for="(item, itemIndex) in items"
           @click="SelectItem(itemIndex)">
-            {{ item }}
+            {{ item.label }}
         </div>
       </div>
     </div>

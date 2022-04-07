@@ -42,3 +42,17 @@
   background-color: var(--grey);
   border-radius: 10px;
 }
+
+.kennel_creator_create_button {
+  width: 50%;
+  padding: 1em;
+  background-color: var(--lime-green);
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.kennel_creator_create_button:hover {
+  opacity: 1;
+  user-select: none;
+}
