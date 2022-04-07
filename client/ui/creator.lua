@@ -5,3 +5,8 @@ xUIManager:CreateCallback("requestCreatorConfig", function(data, cb)
     vestTypes = xK9Config.K9VestTypes
   })
 end)
+
+xUIManager:CreateCallback("createK9", function(data, cb)
+  TriggerServerEvent("")
+  cb("ok")
+end)
