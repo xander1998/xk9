@@ -31,6 +31,10 @@ xK9Config.Kennels = {
   { model = "prop_dog_cage_01", position = vector3(-448.21, 6016.52, 30.71), rotation = vector3(6.73, -2.19, 42.91) }
 }
 
+xK9Config.BadItems = {
+  { item = "weed_og-kush" }
+}
+
 xK9Config.Training = {
   {
     Terminal = vector3(0.0, 0.0, 0.0),

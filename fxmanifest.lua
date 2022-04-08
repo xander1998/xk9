@@ -32,9 +32,10 @@ files {
 }
 
 shared_scripts {
+  "shared/config.lua",
+  "shared/managers/*.lua",
   "shared/classes/*.lua",
-  "shared/modules/*.lua",
-  "shared/config.lua"
+  "shared/modules/*.lua"
 }
 
 server_scripts {
