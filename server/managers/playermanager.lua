@@ -5,7 +5,7 @@ function xPlayerManager:AddPlayer(player)
   self.Players[player.Handle] = player
 end
 
-function xPlayerManager:RemovePlayer(player)
+function xPlayerManager:RemovePlayer(handle)
   self.Players[player.Handle] = nil
 end
 

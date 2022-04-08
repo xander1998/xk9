@@ -32,11 +32,14 @@ files {
 }
 
 shared_scripts {
+  "shared/classes/*.lua",
+  "shared/modules/*.lua",
   "shared/config.lua"
 }
 
 server_scripts {
   "server/classes/*.lua",
+  "server/managers/*.lua",
   "server/server.lua"
 }
 

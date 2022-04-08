@@ -1,3 +1,11 @@
+AddEventHandler("playerJoining", function(source, oldSource)
+  xPlayerManager:AddPlayer(xPlayer.New(source))
+end)
+
+AddEventHandler("playerDropped", function(reason)
+  xPlayerManager:RemovePlayer(source)
+end)
+
 RegisterNetEvent("xK9::Server::SyncLeash")
 AddEventHandler("xK9::Server::SyncLeash", function(dog)
   local player = tonumber(source)
