@@ -1,6 +1,8 @@
 xK9Config = {}
 
-xK9Config.Framework = nil -- [[ ESX / QBCore ]]
+xK9Config.Framework = "QBCore" -- [[ ESX / QBCore ]]
+xK9Config.DatabaseSystem = "oxmysql" --[[ ExternalSQL / oxmysql ]]
+
 
 xK9Config.K9Colors = {
   ["lightbrown_black"] = { label = "Light Brown/Black", index = 0 },
