@@ -16,7 +16,7 @@ end
 
 RegisterCommand("test", function(source, args, raw)
   local module = xK9ModuleManager:GetActiveModule()
-  module:SearchPerson(source, function(result)
+  module:SearchPerson(2, function(result)
     print("HAS BAD ITEM: " .. result)
   end)
 end, false)

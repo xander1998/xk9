@@ -20,8 +20,10 @@ function xK9Module.New(framework)
     AddEventHandler("xK9::Server::SearchPerson", function(player)
       if newModule.SearchPersonFunction then
         local src = source
-        local results = newModule.SearchPersonFunction()
-        TriggerClientEvent("xK9::Client::ReceiveSearchResults", src, results)
+        newModule.SearchPersonFunction(player, function(results)
+          TriggerClientEvent("xK9::Client::ReceiveSearchResults", src, results or false)
+        end)
+        
       end
     end)
 
@@ -29,8 +31,9 @@ function xK9Module.New(framework)
     AddEventHandler("xK9::Server::SearchVehicle", function(plate)
       if newModule.SearchVehicleFunction then
         local src = source
-        local results = newModule.SearchVehicleFunction()
-        TriggerClientEvent("xK9::Client::ReceiveSearchResults", src, results)
+        local results = newModule.SearchVehicleFunction(plate, function(results)
+          TriggerClientEvent("xK9::Client::ReceiveSearchResults", src, results or false)
+        end)
       end
     end)
   else
@@ -43,16 +46,28 @@ function xK9Module.New(framework)
   return newModule
 end
 
-function xK9Module:LoadFrameworkObject(object)
-  self.FrameworkObject = object
+function xK9Module:SetClientFrameworkObject(object)
+  if not IsDuplicityVersion() then
+    self.FrameworkObject = object
+  end
+end
+
+function xK9Module:SetServerFrameworkObject(object)
+  if IsDuplicityVersion() then
+    self.FrameworkObject = object
+  end
 end
 
 function xK9Module:SetSearchPersonFunction(func)
-  self.SearchPersonFunction = func
+  if IsDuplicityVersion() then
+    self.SearchPersonFunction = func
+  end
 end
 
 function xK9Module:SetSearchVehicleFunction(func)
-  self.SearchVehicleFunction = func
+  if IsDuplicityVersion() then
+    self.SearchVehicleFunction = func
+  end
 end
 
 if not IsDuplicityVersion() then
