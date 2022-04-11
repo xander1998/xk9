@@ -1,9 +1,7 @@
 const Kennel = {
-  props: {
-    dogs: { type: Array, required: false, default: [] }
-  },
   data() {
     return {
+      dogs: [],
       showCreator: false,
       page: 1,
       dogPerPage: 4,
@@ -38,7 +36,7 @@ const Kennel = {
     GetPageCount() {
       return Math.ceil(this.dogs.length / this.dogPerPage);
     },
-    async SelectDog(dogIndex) {
+    async HighlightDog(dogIndex) {
       if (this.selectedDog == null) {
         this.showDogSkills = true;
         this.selectedDog = dogIndex;
@@ -68,7 +66,15 @@ const Kennel = {
     },
     ToggleCreator() {
       this.showCreator = !this.showCreator;
-    }
+    },
+    CreateK9(data) {
+      axios.post(`https://${GetParentResourceName()}/createK9`, data).then((dogList) => {
+        this.dogs = dogList;
+      })
+    },
+    SelectK9() {},
+    DeleteK9() {},
+    UpdateK9List() {}
   },
   components: { KennelCard, KennelSkill, KennelCreator },
   template: `
@@ -89,7 +95,7 @@ const Kennel = {
           v-show="DisplayCard(dogIndex)"
           :dog="dog"
           :class="{ 'kennel_dog_selected': selectedDog == dogIndex }"
-          @click="SelectDog(dogIndex)"
+          @click="HighlightDog(dogIndex)"
         />
 
         <div class="kennel_pagination" v-show="!showCreator">
@@ -113,7 +119,11 @@ const Kennel = {
 
         <div class="kennel_cover" v-show="showCreator"></div>
 
-        <kennel-creator v-show="showCreator" @close="ToggleCreator"></kennel-creator>
+        <kennel-creator
+          v-show="showCreator"
+          @close="ToggleCreator"
+          @create="CreateK9">
+        </kennel-creator>
       </div>
     </div>
   `

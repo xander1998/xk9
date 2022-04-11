@@ -54,6 +54,15 @@ const KennelCreator = {
         })
         this.closeCreator();
       }
+    },
+    createK9() {
+      this.$emit("create", {
+        name: this.name,
+        isMale: this.isMale,
+        dogColor: this.dogColor,
+        dogVestType: this.dogVestType,
+        dogVestColor: this.dogVestColor,
+      })
     }
   },
   mounted() {

@@ -10,7 +10,7 @@ xUIManager:CreateCallback("createK9", function(data, cb)
   local module = xK9Module:GetActiveModule()
 
   if module then
-    cb()
+    
   else
     cb({})
   end

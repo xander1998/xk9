@@ -135,18 +135,18 @@ if not IsDuplicityVersion() then
   end
 
   function xK9Module:CreateK9()
-    
+    TriggerServerEvent("xK9::Server::CreateK9", data)
   end
 
   function xK9Module:DeleteK9()
-
+    TriggerServerEvent("xK9::Server::DeleteK9")
   end
 
   function xK9Module:SelectK9()
-
+    TriggerServerEvent("xK9::Server::SelectK9")
   end
 
   function xK9Module:GetK9List()
-
+    TriggerServerEvent("xK9::Server::GetK9List")
   end
 end
