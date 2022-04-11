@@ -7,6 +7,11 @@ xUIManager:CreateCallback("requestCreatorConfig", function(data, cb)
 end)
 
 xUIManager:CreateCallback("createK9", function(data, cb)
-  TriggerServerEvent("")
-  cb("ok")
+  local module = xK9Module:GetActiveModule()
+
+  if module then
+    cb()
+  else
+    cb({})
+  end
 end)

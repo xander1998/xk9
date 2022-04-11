@@ -1,14 +1,9 @@
 CREATE TABLE IF NOT EXISTS `dogs_skills` (
-  `key` VARCHAR(12) NOT NULL UNIQUE,
-  `type` VARCHAR(24) NOT NULL,
+  `key` VARCHAR(30) NOT NULL UNIQUE,
   PRIMARY KEY (`key`)
 );
 
-INSERT INTO `dogs_skills` (`key`, `type`) VALUES
-  ('cocaine', 'drug'),
-  ('weed', 'drug'),
-  ('opium', 'drug'),
-  ('pills', 'drugs'),
-  ('meth', 'drugs'),
-  ('attack', 'combat'),
-  ('intimidation', 'combat')
+INSERT INTO `dogs_skills` (`key`) VALUES
+  ('paraphernalia'),
+  ('attack'),
+  ('tracking');

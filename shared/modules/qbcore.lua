@@ -1,8 +1,6 @@
 local module = xK9Module.New("QBCore")
 
-module:SetServerFrameworkObject(exports['qb-core']:GetCoreObject())
-
-module:SetSearchPersonFunction(function(id, callback)
+local function SearchPersonFunction(id, callback)
   local hasBadItem = false
   local player = module.FrameworkObject.Functions.GetPlayer(1)
   if player then
@@ -19,11 +17,9 @@ module:SetSearchPersonFunction(function(id, callback)
     end
   end
   callback(hasBadItem)
-end)
+end
 
-module:SetSearchVehicleFunction(function(plate, callback)
-  print("Vehicle Plate: " .. tostring(plate))
-  
+local function SearchVehicleFunction(plate, callback)
   local hasBadItem = false
 
   local player = module.FrameworkObject.Functions.GetPlayer(1)
@@ -43,6 +39,7 @@ module:SetSearchVehicleFunction(function(plate, callback)
       end
     end
 
+    -- Glovebox Items
     if not hasBadItem then
       local gloveboxResult = MySQL.query.await("SELECT `items` FROM `gloveboxitems` WHERE `plate` = ?", { plate })
       inventory = json.decode(gloveboxResult[1].items)
@@ -57,8 +54,31 @@ module:SetSearchVehicleFunction(function(plate, callback)
       end
     end
   end
-
   callback(hasBadItem)
-end)
+end
+
+local function GetK9ListFunction(player, callback)
+  local dogs = MySQL.query.await("SELECT (`name`, `level`, `last_used`) FROM `dogs` WHERE `player`  = ?", { player })
+end
+
+local function SelectK9Function(id, player, callback)
+  local dog = MySQL.query.await("SELECT * FROM `dogs` WHERE `id` = ? AND `player` = ? LIMIT 1", { id, player })
+end
+
+local function CreateK9Function(data, callback)
+  local created = MySQL.query.await("", {})
+end
+
+local function DeleteK9Function(id, player, callback)
+  local dog = MySQL.query.await("DELETE FROM `dogs` WHERE `id` = ? AND `player` = ?", { id, player })
+end
+
+module:SetServerFrameworkObject(exports['qb-core']:GetCoreObject())
+module:SetSearchPersonFunction(SearchPersonFunction)
+module:SetSearchVehicleFunction(SearchVehicleFunction)
+module:SetGetK9ListFunction(GetK9ListFunction)
+module:SetSelectK9Function(SelectK9Function)
+module:SetCreateK9Function(CreateK9Function)
+module:SetDeleteK9Function(DeleteK9Function)
 
 xK9ModuleManager:LoadModule(module)
