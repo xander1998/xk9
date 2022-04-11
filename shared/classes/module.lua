@@ -21,6 +21,7 @@ function xK9Module.New(framework)
       if newModule.SearchPersonFunction then
         local src = source
         newModule.SearchPersonFunction(player, function(results)
+          print("Source: " .. src .. " | " .. " Player: " .. player .. " | " .. "Results: " .. tostring(results))
           TriggerClientEvent("xK9::Client::ReceiveSearchResults", src, results or false)
         end)
         
@@ -37,8 +38,8 @@ function xK9Module.New(framework)
       end
     end)
   else
-    RegisterNetEvent("xK9::Client::RecieveSearchResults")
-    AddEventHandler("xK9::Client::RecieveSearchResults", function(results)
+    RegisterNetEvent("xK9::Client::ReceiveSearchResults")
+    AddEventHandler("xK9::Client::ReceiveSearchResults", function(results)
       newModule.SearchResultFunction(results)
     end)
   end

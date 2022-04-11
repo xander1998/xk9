@@ -14,9 +14,15 @@ function xK9ModuleManager:GetActiveModule()
   return self.Modules[xK9Config.Framework]
 end
 
-RegisterCommand("test", function(source, args, raw)
-  local module = xK9ModuleManager:GetActiveModule()
-  module:SearchPerson(2, function(result)
-    print("HAS BAD ITEM: " .. result)
-  end)
-end, false)
+-- RegisterCommand("test", function(source, args, raw)
+--   local module = xK9ModuleManager:GetActiveModule()
+--   module:SearchPerson(source, function(results)
+    
+--   end)
+
+--   local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+--   local plate = GetVehicleNumberPlateText(vehicle)
+--   module:SearchVehicle(plate, function(results)
+
+--   end)
+-- end, false)
