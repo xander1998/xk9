@@ -8,7 +8,6 @@ RegisterCommand("pos", function(source, args, raw)
   print(GetEntityCoords(ped), GetEntityRotation(ped))
 end, false)
 
--- RegisterKeyMapping(char* commandString, char* description, char* defaultMapper, char* defaultParameter)
 RegisterCommand("leash", function(source, args, raw)
   local k9 = xK9Manager:GetK9()
   if k9 then
@@ -16,39 +15,11 @@ RegisterCommand("leash", function(source, args, raw)
   end
 end, false)
 
--- RegisterKeyMapping(char* commandString, char* description, char* defaultMapper, char* defaultParameter)
 RegisterCommand("unleash", function(source, args, raw)
   local k9 = xK9Manager:GetK9()
   if k9 then
     k9:Unleash()
   end
-end, false)
-
--- xKeymap.New("heel", "Make the dog standby and sit", "keyboard", "H", function()
---   local k9 = xK9Manager:GetK9()
---   if k9 then
---     k9:Heel()
---   end
--- end)
-RegisterCommand("heel", function(source, args, raw)
-    local k9 = xK9Manager:GetK9()
-    if k9 then
-      k9:Heel()
-    end
-end, false)
-
--- RegisterKeyMapping(char* commandString, char* description, char* defaultMapper, char* defaultParameter)
--- xKeymap.New("attack", "Attack selected target", "keyboard", "E", function()
---   local k9 = xK9Manager:GetK9()
---   if k9 then
---     -- Attack Function Here
---   end
--- end)
-RegisterCommand("attack", function(source, args, raw)
-    local k9 = xK9Manager:GetK9()
-    if k9 then
-      -- Attack Function Here
-    end
 end, false)
 
 RegisterCommand("intimidate", function(source, args, raw)
@@ -119,6 +90,28 @@ Citizen.CreateThread(function()
     Citizen.Wait(0)
   end
 end)
+
+RegisterCommand("vehicle", function(source, args, raw)
+  local hash = GetHashKey(args[1])
+  local ped = PlayerPedId()
+  local offset = GetOffsetFromEntityInWorldCoords(ped, 0.0, 3.0, 0.0)
+  local heading = GetEntityHeading(ped)
+
+  RequestModel(hash)
+  while not HasModelLoaded(hash) do
+    Citizen.Wait(0)
+  end
+
+  local vehicle = CreateVehicle(hash, offset.x, offset.y, offset.z, heading, true, false)
+
+  xVehicleManager:SetCurrentVehicle(xVehicle.New(vehicle, xK9Manager:GetK9()))
+
+  local vehicleClass = xVehicleManager:GetCurrentVehicle()
+
+  vehicleClass:OpenDoor()
+  Citizen.Wait(2000)
+  vehicleClass:CloseDoor()
+end, false)
 
 -- SCRIPT SETUP
 AddEventHandler("onClientResourceStart", function(resource)

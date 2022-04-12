@@ -2,6 +2,15 @@ xK9Config = {}
 
 xK9Config.Framework = "QBCore" -- [[ ESX / QBCore ]]
 
+xK9Config.AllowedVehicles = {
+  {
+    hash = GetHashKey("police"),
+    interaction_offset = vector3(1.25, -0.75, 0.0),
+    dog_attach_bone = "SKEL_ROOT",
+    door_index = 3,
+    seat_index = 3
+  }
+}
 
 xK9Config.K9Colors = {
   ["lightbrown_black"] = { label = "Light Brown/Black", index = 0 },
