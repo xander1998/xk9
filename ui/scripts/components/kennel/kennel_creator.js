@@ -43,26 +43,22 @@ const KennelCreator = {
       if (nameValid && dogColorValid && dogVestColorValid && dogVestTypeValid) { return true; }
       return false;
     },
-    formSubmit() {
-      if (this.validateForm()) {
-        axios.post(`https://${GetParentResourceName()}/createK9`, {
-          name: this.name,
-          male: this.isMale,
-          dogColor: this.dogColor,
-          vestType: this.dogVestType,
-          vestColor: this.dogVestColor
-        })
-        this.closeCreator();
-      }
-    },
     createK9() {
-      this.$emit("create", {
-        name: this.name,
-        isMale: this.isMale,
-        dogColor: this.dogColor,
-        dogVestType: this.dogVestType,
-        dogVestColor: this.dogVestColor,
-      })
+      if (this.validateForm()) {
+        this.$emit("create", {
+          name: this.name,
+          isMale: this.isMale,
+          dogColor: this.dogColor,
+          dogVestType: this.dogVestType,
+          dogVestColor: this.dogVestColor,
+        })
+
+        this.name = "Default Name"
+        this.isMale = false
+        this.dogColor = null
+        this.dogVestType = null
+        this.dogVestColor = null
+      }
     }
   },
   mounted() {
@@ -84,7 +80,7 @@ const KennelCreator = {
         <kennel-creator-dropdown label="K9 Colors" :items="dogColors" @itemSelected="dogColorChanged" />
         <kennel-creator-dropdown label="K9 Vest Colors" :items="dogVestColors" @itemSelected="dogVestColorChanged" />
         <kennel-creator-dropdown label="K9 Vest Type" :items="dogVestTypes" @itemSelected="dogVestTypeChanged" />
-        <div class="kennel_creator_create_button" @click="formSubmit">CREATE</div>
+        <div class="kennel_creator_create_button" @click="createK9">CREATE</div>
       </div>
     </div>
   `,

@@ -11,6 +11,10 @@ const Kennel = {
     }
   },
   methods: {
+    EVENT_UpdateK9List(data) {
+      console.log(JSON.stringify(data.dogs, null, 4));
+      this.dogs = data.dogs;
+    },
     DisplayCard(index) {
       const startIndex = (this.page * this.dogPerPage) - this.dogPerPage;
       const stopIndex = (this.page * this.dogPerPage) - 1;
@@ -59,8 +63,10 @@ const Kennel = {
     async CloseButton() {
       await this.HideDogsSkills();
 
-      this.showDogSkills = false;
-      await resolveAfter(750);
+      if (this.showDogSkills) {
+        this.showDogSkills = false;
+        await resolveAfter(750);
+      }
 
       this.$emit("close");
     },
@@ -68,13 +74,19 @@ const Kennel = {
       this.showCreator = !this.showCreator;
     },
     CreateK9(data) {
-      axios.post(`https://${GetParentResourceName()}/createK9`, data).then((dogList) => {
-        this.dogs = dogList;
+      this.showCreator = false;
+      axios.post(`https://${GetParentResourceName()}/createK9`, data).then(() => {
+        this.UpdateK9List();
       })
     },
     SelectK9() {},
     DeleteK9() {},
-    UpdateK9List() {}
+    UpdateK9List(dogList) {
+      this.dogs = dogList;
+    }
+  },
+  mounted() {
+    RegisterEvent("updateK9List", this.EVENT_UpdateK9List);
   },
   components: { KennelCard, KennelSkill, KennelCreator },
   template: `

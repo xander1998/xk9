@@ -17,12 +17,21 @@ function xK9Module.New(framework)
   newModule.SearchPersonFunction = nil
   newModule.SearchVehicleFunction = nil
   newModule.SearchResultFunction = nil
+  newModule.CreateK9ResultFunction = nil
+  newModule.DeleteK9ResultFunction = nil
+  newModule.SelectedK9ResultFunction = nil
+  newModule.GetK9ListResultFunction = nil
 
   -- EVENTS
   if IsDuplicityVersion() then
     RegisterNetEvent("xK9::Server::CreateK9")
-    AddEventHandler("xK9::Server::CreateK9", function()
-    
+    AddEventHandler("xK9::Server::CreateK9", function(data)
+      if newModule.CreateK9Function then
+        local src = source
+        newModule.CreateK9Function(src, data, function(newList)
+          TriggerClientEvent("xK9::Client::CreateK9Result", src, newList)
+        end)
+      end
     end)
 
     RegisterNetEvent("xK9::Server::DeleteK9")
@@ -33,6 +42,16 @@ function xK9Module.New(framework)
     RegisterNetEvent("xK9::Server::SelectK9")
     AddEventHandler("xK9::Server::SelectK9", function()
       
+    end)
+
+    RegisterNetEvent("xK9::Server::GetK9List")
+    AddEventHandler("xK9::Server::GetK9List", function()
+      if newModule.GetK9ListFunction then
+        local src = source
+        newModule.GetK9ListFunction(src, function(results)
+          TriggerClientEvent("xK9::Client::ReceiveK9List", src, results)
+        end)
+      end
     end)
 
     RegisterNetEvent("xK9::Server::SearchPerson")
@@ -55,14 +74,31 @@ function xK9Module.New(framework)
       end
     end)
   else
+    RegisterNetEvent("xK9::Client::CreateK9Result")
+    AddEventHandler("xK9::Client::CreateK9Result", function()
+      if newModule.CreateK9ResultFunction then
+        newModule.CreateK9ResultFunction()
+      else
+        error("[xK9 Error]: No CreateK9ResultFunction defined in the module!")
+      end
+    end)
+
     RegisterNetEvent("xK9::Client::ReceiveSearchResults")
     AddEventHandler("xK9::Client::ReceiveSearchResults", function(results)
-      newModule.SearchResultFunction(results)
+      if newModule.SearchResultFunction then
+        newModule.SearchResultFunction(results)
+      else
+        error("[xK9 Error]: No SearchResultFunction defined in the module!")
+      end
     end)
 
     RegisterNetEvent("xK9::Client::ReceiveK9List")
     AddEventHandler("xK9::Client::ReceiveK9List", function(dogs)
-      print(json.encode(dogs))
+      if newModule.GetK9ListResultFunction then
+        newModule.GetK9ListResultFunction(dogs)
+      else
+        error("[xK9 Error]: No GetK9ListResultFunction defined in the module!")
+      end
     end)
   end
 
@@ -134,7 +170,8 @@ if not IsDuplicityVersion() then
     TriggerServerEvent("xK9::Server::SearchVehicle", plate)
   end
 
-  function xK9Module:CreateK9()
+  function xK9Module:CreateK9(data, func)
+    self.CreateK9ResultFunction = func
     TriggerServerEvent("xK9::Server::CreateK9", data)
   end
 
@@ -146,7 +183,8 @@ if not IsDuplicityVersion() then
     TriggerServerEvent("xK9::Server::SelectK9")
   end
 
-  function xK9Module:GetK9List()
+  function xK9Module:GetK9List(func)
+    self.GetK9ListResultFunction = func
     TriggerServerEvent("xK9::Server::GetK9List")
   end
 end

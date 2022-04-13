@@ -7,11 +7,15 @@ xUIManager:CreateCallback("requestCreatorConfig", function(data, cb)
 end)
 
 xUIManager:CreateCallback("createK9", function(data, cb)
-  local module = xK9Module:GetActiveModule()
-
+  local module = xK9ModuleManager:GetActiveModule()
   if module then
-    
-  else
-    cb({})
+    module:CreateK9(data, function()
+      module:GetK9List(function(results)
+        xUIManager:SendMessage("updateK9List", {
+          dogs = results
+        })
+      end)
+      cb()
+    end)
   end
 end)

@@ -30,6 +30,15 @@ Citizen.CreateThread(function()
         if IsControlJustPressed(0, 38) then
           xUIManager:ChangeView("kennel")
           xUIManager:OpenUI()
+          
+          local module = xK9ModuleManager:GetActiveModule()
+          if module then
+            module:GetK9List(function(results)
+              xUIManager:SendMessage("updateK9List", {
+                dogs = results
+              })
+            end)
+          end
         end
       end
     end

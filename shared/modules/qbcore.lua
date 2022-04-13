@@ -57,21 +57,37 @@ local function SearchVehicleFunction(plate, callback)
   callback(hasBadItem)
 end
 
-local function GetK9ListFunction(player, callback)
-  local dogs = MySQL.query.await("SELECT (`name`, `level`, `last_used`) FROM `dogs` WHERE `player`  = ?", { player })
+local function GetK9ListFunction(src, callback)
+  local player = module.FrameworkObject.Functions.GetPlayer(src)
+  if player then
+    local newList = MySQL.query.await("SELECT * FROM `dogs` WHERE `player` = ?", { player.PlayerData.citizenid })
+    callback(newList)
+  end
 end
 
-local function SelectK9Function(id, player, callback)
-  local dog = MySQL.query.await("SELECT * FROM `dogs` WHERE `id` = ? AND `player` = ? LIMIT 1", { id, player })
+-- local function SelectK9Function(id, src, callback)
+--   local dog = MySQL.query.await("SELECT * FROM `dogs` WHERE `id` = ? AND `player` = ? LIMIT 1", { id, player })
+-- end
+
+local function CreateK9Function(src, data, callback)
+  local player = module.FrameworkObject.Functions.GetPlayer(1)
+  if player then
+    local created = MySQL.query.await("INSERT INTO `dogs` (`player`, `name`, `color`, `vest`, `vestColor`) VALUES (?, ?, ?, ?, ?)", {
+      player.PlayerData.citizenid,
+      data.name,
+      data.dogColor.index,
+      data.dogVestType.index,
+      data.dogVestColor.index
+    })
+
+    local newList = MySQL.query.await("SELECT * FROM `dogs` WHERE `player` = ?", { player.PlayerData.citizenid })
+    callback(newList)
+  end
 end
 
-local function CreateK9Function(data, callback)
-  local created = MySQL.query.await("", {})
-end
-
-local function DeleteK9Function(id, player, callback)
-  local dog = MySQL.query.await("DELETE FROM `dogs` WHERE `id` = ? AND `player` = ?", { id, player })
-end
+-- local function DeleteK9Function(id, src, callback)
+--   local dog = MySQL.query.await("DELETE FROM `dogs` WHERE `id` = ? AND `player` = ?", { id, player })
+-- end
 
 module:SetServerFrameworkObject(exports['qb-core']:GetCoreObject())
 module:SetSearchPersonFunction(SearchPersonFunction)
